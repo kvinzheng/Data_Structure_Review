@@ -34,18 +34,21 @@ function selectionSort(arr){
   return arr;
 }
 
-console.log(selectionSort([3.1, 0, 10, 4.5,1,2,5]));
+// console.log(selectionSort([3.1, 0, 10, 4.5,1,2,5]));
 
-//Insertion Sort
+
+//Insertion Sort has a case performance of O(n^2)
 function insertionSort(arr) {
+
   for(let i = 0; i < arr.length; i++){
     let current = arr[i];
-    for(let j = i - 1; j > - 1 && arr[j] > current; j--){
-      arr[j+1] = [j];
+    let j ;
+    for(j = i - 1; j >= 0 && arr[j] > current ; j--){
+      arr[j+1] = arr[j];
     }
     arr[j+1] = current;
   }
   return arr;
 }
 
-//
+console.log(insertionSort([3.1, 0, 10, 4.5,1,2,5]));
