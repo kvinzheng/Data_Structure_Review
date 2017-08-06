@@ -25,6 +25,39 @@ function mergeSort(arr){
 
   return merge(mergeSort(left), mergeSort(right))
 }
-console.log(mergeSort([3.1,4.5,1,2,5]));
+// console.log(mergeSort([3.1,4.5,1,2,5]));
 
-module.exports = { merge, mergeSort }
+function partition(arr, left, right){
+  let partitionIndex = left;
+  let partitionValue = arr[left];
+
+  for(let i = left + 1 ; i < arr.length; i++){
+    if(arr[i] < partitionValue){
+      partitionIndex++;
+      [arr[i], arr[partitionIndex]] = [arr[partitionIndex], arr[i]];
+    }
+  }
+  [arr[left], arr[partitionIndex]] = [arr[partitionIndex], arr[left]];
+  // console.log('arr====', arr);
+  return partitionIndex;
+}
+
+function quickSort(arr, left = 0, right = arr.length - 1){
+  // console.log('before quick sort===', arr);
+  // if(arr.length < 2){
+  //   return arr;
+  // }
+
+  let copy = arr;
+  if(left < right){
+    let p = partition(copy, left, right );
+    quickSort(copy, left, p - 1);
+    quickSort(copy, p + 1, right);
+  }
+  // console.log('after quick sort===', arr);
+  return arr;
+}
+
+// console.log(quickSort([5, 7, 9, 3, 10], 0, 4));
+
+module.exports = { merge, mergeSort, quickSort, partition }
