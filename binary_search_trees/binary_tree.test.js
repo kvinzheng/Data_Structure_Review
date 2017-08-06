@@ -107,29 +107,31 @@ describe('BinTree', function() {
   //     expect(binTree.root.right.left.left.value).to.equal(6);
   //   });
   // });
-  //
-  // describe('#contains', function() {
-  //   var binTree;
-  //   beforeEach(function() {
-  //     binTree = new data.BinTree();
-  //     [7,3,9,1,99,44,66].forEach(function(v) {
-  //       binTree.insertRecursively(v);
-  //     });
-  //   });
-  //   describe('#iteratively', function() {
-  //     it('should find a value in binTree with many values', function() {
-  //       [7,3,9,1,99,44,66].forEach(function(v) {
-  //         expect(binTree.containsIteratively(v)).to.equal(true);
-  //       });
-  //     });
-  //     it('should return true, when it\'s found', function() {
-  //       expect(binTree.containsIteratively(66)).to.equal(true);
-  //     });
-  //     it('should return false, when it\'s not found', function() {
-  //       expect(binTree.containsIteratively(-20)).to.equal(false);
-  //       expect(binTree.containsIteratively(20)).to.equal(false);
-  //     });
-  //   });
+
+  describe('#contains', function() {
+    var binTree;
+    beforeEach(function() {
+      binTree = new data.BinTree();
+      [7,3,9,1,99,44,66].forEach(function(v) {
+        binTree.insertIteratively(v);
+      });
+    });
+    describe('#iteratively', function() {
+      it('should find a value in binTree with many values', function() {
+        [7,3,9,1,99,44,66].forEach(function(v) {
+          expect(binTree.containsIteratively(v)).to.equal(true);
+        });
+      });
+      it('should return true, when it\'s found', function() {
+        expect(binTree.containsIteratively(66)).to.equal(true);
+      });
+      it('should return false, when it\'s not found', function() {
+        expect(binTree.containsIteratively(-20)).to.equal(false);
+        expect(binTree.containsIteratively(20)).to.equal(false);
+      });
+    });
+
+
   //   describe('#recursively', function() {
   //     it('should find a value in binTree with many values', function() {
   //       [7,3,9,1,99,44,66].forEach(function(v) {
@@ -279,5 +281,5 @@ describe('BinTree', function() {
   //     expect(binTree.root.left.value).to.equal(10);
   //     expect(binTree.root.right.value).to.equal(28);
   //   });
-  // });
+  });
 });

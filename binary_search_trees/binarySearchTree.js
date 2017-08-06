@@ -18,42 +18,58 @@ BinTree.prototype.insertIteratively = function(value) {
       this.root = new Node(value);
       return this;
     } else {
-      //current node used for traversal, just like linkedin lists!
+      //set the initial this.root value
       let current = this.root;
-      //keep looping till we get to the correct spot;
+
       while (true) {
         if (value < current.value) {
+          //if there is nothing on the left
           if (current.left === null) {
+            //make a new node and get out
             current.left = new Node(value);
-            console.log('what is this here LEFT', this);
+            console.log('this in LEFT', this);
             return this;
           } else {
             current = current.left;
-            // break;
           }
-        }
-        else if (value > current.value) {
+        } else if (value > current.value) {
+          //if there is nothing on the right
           if (current.right === null) {
+            //make a new node and get out
             current.right = new Node(value);
-            console.log('what is the this here RIGHT,', this);
+            // console.log('this in RIGHT', this);
             return this;
           } else {
             current = current.right;
-            // break;
           }
-        }
-        else {
+        } else {
           return 'duplicate!';
         }
       }
-
     }
-  }
-  else {
+  } else {
     return 'Please insert a number';
   }
 }
 
+BinTree.prototype.containsIteratively = function(value) {
+  let current = this.root;
+  let isFound = false;
+
+  while(current && !isFound){
+    if(value < current.value) {
+
+      current = current.left
+    }
+    else if(value > current.value) {
+      current = current.right;
+    }
+    else if (current.value === value){
+      isFound = true;
+    }
+  }
+  return isFound;
+}
 module.exports = {
   BinTree: BinTree,
   Node: Node
