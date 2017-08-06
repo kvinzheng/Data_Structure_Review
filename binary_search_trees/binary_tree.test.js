@@ -147,18 +147,18 @@ describe('BinTree', function() {
   //     });
   //   });
   // });
-  // describe('breadth first search', function() {
-  //   var binTree;
-  //   beforeEach(function() {
-  //     binTree = new data.BinTree();
-  //     [7,3,9,1,99,44,66].forEach(function(v) {
-  //       binTree.insertRecursively(v);
-  //     });
-  //   });
-  //   it('should search left to right', function() {
-  //     expect(binTree.breadthFirstSearch()).to.deep.eq([7,3,9,1,99,44,66]);
-  //   });
-  // });
+  describe('breadth first search', function() {
+    var binTree;
+    beforeEach(function() {
+      binTree = new data.BinTree();
+      [7,3,9,1,99,44,66].forEach(function(v) {
+        binTree.insertIteratively(v);
+      });
+    });
+    it('should search left to right', function() {
+      expect(binTree.breadthFirstSearch()).to.deep.eq([7,3,9,1,99,44,66]);
+    });
+  });
   // describe('depth first search', function() {
   //   beforeEach(function() {
   //     binTree = new data.BinTree();

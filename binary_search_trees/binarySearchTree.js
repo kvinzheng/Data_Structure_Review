@@ -27,7 +27,7 @@ BinTree.prototype.insertIteratively = function(value) {
           if (current.left === null) {
             //make a new node and get out
             current.left = new Node(value);
-            console.log('this in LEFT', this);
+            // console.log('this in LEFT', this);
             return this;
           } else {
             current = current.left;
@@ -70,6 +70,32 @@ BinTree.prototype.containsIteratively = function(value) {
   }
   return isFound;
 }
+
+
+BinTree.prototype.breadthFirstSearch = function(){
+  //this is the first node
+  let node = this.root;
+  //this is the queue;
+  let queue = [];
+  //this is the final data;
+  let data = [];
+
+  queue.push(node);
+  while(queue.length > 0){
+    let out = queue.shift();
+    data.push(out.value);
+    
+    if(out.left){
+      queue.push(out.left);
+    }
+    if(out.right){
+      queue.push(out.right);
+    }
+  }
+
+  return data;
+}
+
 module.exports = {
   BinTree: BinTree,
   Node: Node
