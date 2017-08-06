@@ -159,29 +159,29 @@ describe('BinTree', function() {
       expect(binTree.breadthFirstSearch()).to.deep.eq([7,3,9,1,99,44,66]);
     });
   });
-  // describe('depth first search', function() {
-  //   beforeEach(function() {
-  //     binTree = new data.BinTree();
-  //     [7,3,9,1,99,44,66].forEach(function(v) {
-  //       binTree.insertRecursively(v);
-  //     });
-  //   });
-  //   describe('preorder', function() {
-  //     it('searches from root - left - right', function() {
-  //       expect(binTree.DFSPreOrder()).to.deep.eq([7, 3, 1, 9, 99, 44, 66]);
-  //     });
-  //   });
-  //   describe('inorder', function() {
-  //     it('searches from left - root - right', function() {
-  //       expect(binTree.DFSInOrder()).to.deep.eq([1, 3, 7, 9, 44, 66, 99]);
-  //     });
-  //   });
-  //   describe('postorder', function() {
-  //     it('searches from left - right - root', function() {
-  //       expect(binTree.DFSPostOrder()).to.deep.eq([1, 3, 66, 44, 99, 9, 7]);
-  //     });
-  //   });
-  // });
+  describe('depth first search', function() {
+    beforeEach(function() {
+      binTree = new data.BinTree();
+      [7,3,9,1,99,44,66].forEach(function(v) {
+        binTree.insertIteratively(v);
+      });
+    });
+    describe('preorder', function() {
+      it('searches from root - left - right', function() {
+        expect(binTree.DFSPreOrder()).to.deep.eq([7, 3, 1, 9, 99, 44, 66]);
+      });
+    });
+    describe('inorder', function() {
+      it('searches from left - root - right', function() {
+        expect(binTree.DFSInOrder()).to.deep.eq([1, 3, 7, 9, 44, 66, 99]);
+      });
+    });
+    describe('postorder', function() {
+      it('searches from left - right - root', function() {
+        expect(binTree.DFSPostOrder()).to.deep.eq([1, 3, 66, 44, 99, 9, 7]);
+      });
+    });
+  });
   // describe('#findLowest', function() {
   //   it('It should', function() {
   //     binTree = new data.BinTree();
@@ -280,6 +280,6 @@ describe('BinTree', function() {
   //     expect(binTree.root.value).to.equal(27);
   //     expect(binTree.root.left.value).to.equal(10);
   //     expect(binTree.root.right.value).to.equal(28);
-  //   });
+    // });
   });
 });

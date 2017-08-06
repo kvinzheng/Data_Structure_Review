@@ -71,6 +71,59 @@ BinTree.prototype.containsIteratively = function(value) {
   return isFound;
 }
 
+BinTree.prototype.DFSPreOrder = function(){
+  let current = this.root;
+  let data = [];
+
+  function traverse(node){
+    data.push(node.value);
+
+    if(node.left){
+      traverse(node.left);
+    }
+    if(node.right) {
+      traverse(node.right);
+    }
+
+  }
+  traverse(current);
+  return data;
+}
+
+BinTree.prototype.DFSInOrder = function(){
+  let current = this.root;
+  let data = [];
+
+  function traverse(node){
+    if(node.left){
+      traverse(node.left);
+    }
+    data.push(node.value);
+    if(node.right) {
+      traverse(node.right);
+    }
+  }
+  traverse(current);
+  return data;
+}
+
+BinTree.prototype.DFSPostOrder = function(){
+  let current = this.root;
+  let data = [];
+
+  function traverse(node){
+    if(node.left){
+      traverse(node.left);
+    }
+
+    if(node.right) {
+      traverse(node.right);
+    }
+    data.push(node.value);
+  }
+  traverse(current);
+  return data;
+}
 
 BinTree.prototype.breadthFirstSearch = function(){
   //this is the first node
@@ -84,7 +137,7 @@ BinTree.prototype.breadthFirstSearch = function(){
   while(queue.length > 0){
     let out = queue.shift();
     data.push(out.value);
-    
+
     if(out.left){
       queue.push(out.left);
     }
